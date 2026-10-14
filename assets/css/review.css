@@ -1,0 +1,256 @@
+:root {
+    --plum: #1C1220;
+    --ruby: #A3123F;
+    --ruby-d: #7A0C2E;
+    --gold: #E3A72F;
+    --cream: #FBF6EF
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0
+}
+
+body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    color: #3A2F36;
+    background: var(--plum)
+}
+
+.review-bg {
+    position: fixed;
+    inset: 0;
+    background: var(--plum) center/cover no-repeat url("../images/desk.png");
+    background-position: center 40%
+}
+
+.review-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(28, 18, 32, .7), rgba(122, 12, 46, .55))
+}
+
+.review-wrap {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    place-items: center;
+    padding: 88px 16px
+}
+
+.review-brand {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block
+}
+
+.review-brand img {
+    height: 40px;
+    width: auto
+}
+
+.popup {
+    width: 400px;
+    max-width: 100%;
+    background: var(--cream);
+    border-radius: 6px 28px 6px 28px;
+    padding: 0 0 22px;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, .55);
+    animation: pop .3s ease both;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid rgba(227, 167, 47, .6)
+}
+
+.popup-top {
+    background: var(--ruby);
+    padding: 22px 20px 18px;
+    color: #fff;
+    border-bottom: 4px solid var(--gold)
+}
+
+@keyframes pop {
+    from {
+        opacity: 0;
+        transform: scale(.94) translateY(8px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+.popup .shield {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .16);
+    color: var(--gold);
+    display: grid;
+    place-items: center
+}
+
+.popup .shield svg {
+    width: 26px;
+    height: 26px
+}
+
+.popup h1 {
+    font: 700 22px/1.25 Fraunces, Georgia, serif;
+    color: #fff;
+    margin: 0
+}
+
+.popup-body {
+    padding: 20px 24px 0
+}
+
+.popup p {
+    font-size: 15px;
+    line-height: 1.55;
+    margin: 0 0 18px;
+    color: #4d3e47
+}
+
+.popup-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px
+}
+
+.pbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    border-radius: 999px;
+    font: 700 15px "DM Sans", sans-serif;
+    text-decoration: none;
+    border: 2px solid var(--ruby);
+    transition: background .2s, color .2s
+}
+
+.pbtn.primary {
+    background: var(--ruby);
+    color: #fff
+}
+
+.pbtn.primary:hover {
+    background: var(--ruby-d);
+    border-color: var(--ruby-d)
+}
+
+.pbtn.secondary {
+    background: transparent;
+    color: var(--ruby)
+}
+
+.pbtn.secondary:hover {
+    background: #f3e2e6
+}
+
+.pbtn:focus-visible,
+.popup a:focus-visible {
+    outline: 3px solid var(--plum);
+    outline-offset: 2px
+}
+
+.dest {
+    font-size: 12.5px;
+    color: #75656E;
+    margin: 10px 0 0
+}
+
+.popup-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #E8DCCF;
+    font-size: 14px
+}
+
+.popup-links a {
+    color: var(--plum);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px
+}
+
+.popup-links a:hover {
+    color: var(--ruby)
+}
+
+@media (max-width:1024px) and (min-width:641px) {
+    .review-bg {
+        background-image: url("../images/tab.png");
+        background-position: center 35%
+    }
+}
+
+@media (max-width:640px) {
+    .review-bg {
+        background-image: url("../images/mob.png");
+        background-position: center 30%
+    }
+
+    .review-wrap {
+        padding: 76px 0
+    }
+
+    .popup {
+        width: calc(100% - 32px)
+    }
+
+    .popup-top {
+        padding: 18px 16px 14px
+    }
+
+    .popup h1 {
+        font-size: 20px
+    }
+
+    .popup-body {
+        padding: 16px 16px 0
+    }
+
+    .popup p {
+        font-size: 14.5px;
+        margin-bottom: 14px
+    }
+
+    .review-brand img {
+        height: 34px
+    }
+
+    .review-brand {
+        top: 18px
+    }
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .popup {
+        animation: none
+    }
+}
+
+.review-wrap>main {
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
